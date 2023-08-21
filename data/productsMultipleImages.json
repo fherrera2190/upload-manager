@@ -1,0 +1,35 @@
+[
+   {
+      "id": 1,
+      "name": "Lamborghini Veneno",
+      "images": [
+         "1692287482435_products_.jpg",
+         "1692287482506_products_.webp",
+         "1692287482537_products_.webp",
+         "1692287482543_products_.jpg",
+         "1692287482545_products_.jpg"
+      ]
+   },
+   {
+      "id": 2,
+      "name": "Lamborghini Murciélago",
+      "images": [
+         "1692307180882_products_.jpg",
+         "1692307180891_products_.jpg",
+         "1692307180895_products_.jpg",
+         "1692307180911_products_.jpg",
+         "1692307180928_products_.jpg"
+      ]
+   },
+   {
+      "id": 3,
+      "name": "Fiat Mobi",
+      "images": [
+         "1692373967163_products_.webp",
+         "1692373967175_products_.webp",
+         "1692373967181_products_.webp",
+         "1692373967193_products_.webp",
+         "1692373967203_products_.webp"
+      ]
+   }
+]

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+
+  <body>
+    <%- include('partials/header') %>
+      <div class="container">
+        <div class="row mt-5">
+          <h2>Productos con una SOLA imagen</h2>
+          <hr>
+          <% productsOneImage.forEach(({id,name,image})=> { %>
+            <div class="col-12 col-md-3 col-lg-4">
+              <div class="card">
+                <div class="swiper-slide">
+                  <img src="/images/<%= image || 'default-placeholder.png' %>" alt="" class="card-img-top">
+                </div>
+
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <%= name %>
+                  </h4>
+                  <hr>
+                  <div class="d-flex gap-2 justify-content-end mt-3">
+                    <a href="/products-one-image/edit/<%= id %>" class="btn btn-outline-success"><i
+                        class="fa-regular fa-pen-to-square"></i></a>
+                    <form action="/products-one-image/delete/<%= id %>?_method=DELETE" method="POST">
+                      <button class="btn btn-outline-danger" type="submit"><i
+                          class="fa-regular fa-trash-can"></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+
+        </div>
+        <div class="row mt-5">
+          <h2>Productos con VARIAS imágenes</h2>
+          <hr>
+          <% productsMultipleImages.forEach(({id,name,images})=> { %>
+            <div class="col-12 col-md-3 col-lg-4">
+              <div class="card">
+                <% if (images.length) { %>
+                  <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                      <% images.forEach(image=> { %>
+                        <div class="swiper-slide">
+                          <img src="/images/<%= image %>" alt="" class="card-img-top">
+                        </div>
+                        <% }) %>
+                    </div>
+                  </div>
+                  <% }else{ %>
+                    <div class="swiper-slide">
+                      <img src="/images/default-placeholder.png" alt="" class="card-img-top">
+                    </div>
+                    <% } %>
+                      <div class="card-body">
+                        <h4 class="card-title">
+                          <%= name %>
+                        </h4>
+                        <hr>
+                        <div class="d-flex gap-2 justify-content-end mt-3">
+                          <a href="/products-multiple-images/edit/<%= id %>" class="btn btn-outline-success"><i
+                              class="fa-regular fa-pen-to-square"></i></a>
+                          <form action="/products-one-image/delete/<%= id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-outline-danger" type="submit"><i
+                                class="fa-regular fa-trash-can"></i></button>
+                          </form>
+                        </div>
+                      </div>
+              </div>
+            </div>
+            <% }) %>
+        </div>
+        <div class="row mt-5">
+          <h2>Productos con una imagen PRINCIPAL</h2>
+          <hr>
+          <% if (productsMainImage.length) { %>
+            <% productsMainImage.forEach(({id,name,mainImage,images})=> { %>
+              <div class="col-12 col-md-3 col-lg-4">
+                <div class="card">
+                  <div class="swiper-slide">
+                    <img src="/images/<%= mainImage|| 'default-placeholder.png' %>" alt="" class="card-img-top">
+                  </div>
+
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <%= name %>
+                    </h4>
+                    <hr>
+                    <div class="d-flex gap-2 justify-content-end mt-3">
+                      <!-- Button trigger modal -->
+                      <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal<%= id %>">
+                        <i class="fa-regular fa-eye"></i>
+                      </button>
+                      <%- include('partials/modalDetailProductMainImage', { id, name, mainImage, images }) %>
+
+                        <a href="/products-one-image/edit/<%= id %>" class="btn btn-outline-success"><i
+                            class="fa-regular fa-pen-to-square"></i></a>
+                        <form action="/products-one-image/delete/<%= id %>?_method=DELETE" method="POST">
+                          <button class="btn btn-outline-danger" type="submit"><i
+                              class="fa-regular fa-trash-can"></i></button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+                <% }else{ %>
+                  <p>No hay productos</p>
+                  <% } %>
+
+        </div>
+      </div>
+
+      <%- include('./partials/scripts.ejs') %>
+  </body>
+
+</html>

@@ -1,0 +1,24 @@
+[
+   {
+      "id": 1,
+      "name": "Peugeot 308",
+      "mainImage": "1692370786415_products_.webp",
+      "images": [
+         "1692370786478_products_.webp",
+         "1692370786510_products_.webp",
+         "1692370786514_products_.webp",
+         "1692370786523_products_.webp"
+      ]
+   },
+   {
+      "id": 2,
+      "name": "Fiat Chronos",
+      "mainImage": "1692371255962_products_.webp",
+      "images": [
+         "1692371255963_products_.webp",
+         "1692371255965_products_.webp",
+         "1692371255967_products_.webp",
+         "1692371255975_products_.webp"
+      ]
+   }
+]

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+  <%- include('partials/header') %>
+  <div class="container">
+    <div class="row mt-5">
+      <h2>Editar un producto con una SOLA imagen</h2>
+      <hr>
+        <div class="card">
+            <div class="card-body">
+                <form action="/products-one-image/update/<%= id %>?_method=PUT" method="POST" class="row" enctype="multipart/form-data">
+                  <div class="col-12 col-md-6">
+                    <img src="/images/<%= image || 'default-placeholder.png' %>" class="img-fluid" alt="">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Nombre del producto</label>
+                      <input type="text" class="form-control" name="name" id="name" value="<%= name %>">
+                  </div>
+                  <div class="mb-3 d-flex gap-2">
+                      <label for="image" class="btn btn-secondary">Cambiar la imagen</label>
+                      <input hidden class="form-control" type="file" id="image" name="image">
+                      <button type="submit" class="btn btn-dark">Actualizar</button>
+                    </div>
+                  </div>
+                    
+                </form>
+            </div>
+        </div>
+
+    </div>
+  </div>
+  <%- include('./partials/scripts.ejs') %>
+</body>
+</html>
